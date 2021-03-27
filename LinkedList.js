@@ -119,6 +119,25 @@ class LinkedList {
     }
     return array;
   }
+
+  reverse() {
+    if (this.head === null || this.tail === null) {
+      return this;
+    }
+
+    let temp = this.head.next;
+    let prev = this.head;
+    this.head = this.tail;
+    this.tail = prev;
+    while (temp) {
+      let next = temp.next;
+      temp.next = prev;
+      prev = temp;
+      temp = next;
+    }
+    this.tail.next = null;
+    return this;
+  }
 }
 
 const LL = new LinkedList();
@@ -127,4 +146,4 @@ LL.addLast(1);
 LL.addLast(2);
 LL.addLast(3);
 LL.addLast(4);
-console.log(LL.toArray());
+console.log(LL.reverse());
