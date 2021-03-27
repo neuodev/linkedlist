@@ -14,8 +14,7 @@ class LinkedList {
   addLast(node) {
     const newNode = new Node(node);
     if (this.head === null || this.tail === null) {
-      this.head = newNode;
-      this.tail = this.head;
+      this.head = this.tail = newNode;
     } else {
       this.tail.next = newNode;
       this.tail = newNode;
@@ -102,6 +101,10 @@ class LinkedList {
     }
     return -1;
   }
+
+  size() {
+    return this.length;
+  }
 }
 
 const LL = new LinkedList();
@@ -110,4 +113,5 @@ LL.addLast(1);
 LL.addLast(2);
 LL.addLast(3);
 LL.addLast(4);
-console.log(LL.indexOf(0));
+LL.addLast(4);
+console.log(LL.size());
