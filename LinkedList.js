@@ -155,6 +155,23 @@ class LinkedList {
     current.next = null;
     return current;
   }
+  // get kth elment form the end using slower and runner
+  getKthFromTheEnd(k) {
+    if (k >= this.length || k < 1) return false;
+    let faster = this.head;
+    let slower = this.head;
+    // move the faster k-1 steps forward
+    for (let i = 0; i < k - 1; i++) {
+      faster = faster.next;
+    }
+   // travers to the end of the linked list and when the faster hit the end of the list we return the slower as the kth elment from the last
+    while (faster.next) {
+      faster = faster.next;
+      slower = slower.next;
+    }
+    slower.next = null;
+    console.log(slower);
+  }
 }
 
 const LL = new LinkedList();
@@ -165,4 +182,4 @@ LL.addLast(3);
 LL.addLast(4);
 // LL.reverse();
 console.log(LL.toArray());
-console.log(LL.findKth(6));
+console.log(LL.getKthFromTheEnd(5));
