@@ -88,6 +88,20 @@ class LinkedList {
     }
     return -1;
   }
+  indexOf(val) {
+    if (this.head === null || this.tail === null) {
+      return -1;
+    }
+    // Traverse the Linked list untill we reach the tree
+    let currentNode = this.head;
+    let idx = 0;
+    while (currentNode) {
+      if (currentNode.val === val) return idx;
+      currentNode = currentNode.next;
+      idx++;
+    }
+    return -1;
+  }
 }
 
 const LL = new LinkedList();
@@ -96,4 +110,4 @@ LL.addLast(1);
 LL.addLast(2);
 LL.addLast(3);
 LL.addLast(4);
-console.log(LL.contains(4));
+console.log(LL.indexOf(0));
