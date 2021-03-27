@@ -125,18 +125,35 @@ class LinkedList {
       return this;
     }
 
-    let temp = this.head.next;
+    let current = this.head.next;
     let prev = this.head;
     this.head = this.tail;
     this.tail = prev;
-    while (temp) {
-      let next = temp.next;
-      temp.next = prev;
-      prev = temp;
-      temp = next;
-    }
     this.tail.next = null;
+    while (current) {
+      // Ref the rest of the linked list
+      let next = current.next;
+      // change the potiner to the prev node
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
     return this;
+  }
+
+  /// find kth node with length
+  findKth(idxFromEnd) {
+    if (idxFromEnd >= this.length || idxFromEnd < 0) return false;
+    let idxFromStart = this.length - idxFromEnd - 1;
+    console.log(`${this.length} - ${idxFromEnd} - 1 = ${idxFromStart}`);
+    let idx = 0;
+    let current = this.head;
+    while (idx < idxFromStart) {
+      current = current.next;
+      idx++;
+    }
+    current.next = null;
+    return current;
   }
 }
 
@@ -146,4 +163,6 @@ LL.addLast(1);
 LL.addLast(2);
 LL.addLast(3);
 LL.addLast(4);
-console.log(LL.reverse());
+// LL.reverse();
+console.log(LL.toArray());
+console.log(LL.findKth(6));
