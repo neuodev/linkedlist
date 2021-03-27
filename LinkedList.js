@@ -105,6 +105,20 @@ class LinkedList {
   size() {
     return this.length;
   }
+
+  toArray() {
+    let array = [];
+    if (this.head === null || this.tail === null) {
+      return array;
+    }
+
+    let currentNode = this.head;
+    while (currentNode) {
+      array.push(currentNode.val);
+      currentNode = currentNode.next;
+    }
+    return array;
+  }
 }
 
 const LL = new LinkedList();
@@ -113,5 +127,4 @@ LL.addLast(1);
 LL.addLast(2);
 LL.addLast(3);
 LL.addLast(4);
-LL.addLast(4);
-console.log(LL.size());
+console.log(LL.toArray());
