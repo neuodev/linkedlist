@@ -1,4 +1,4 @@
-## LINKED LIST
+## Linked List
 **Build Linked List.**
 
  - Methods: reverseLinkedList, getKthFromTheEnd, toArray, size, indexOf, contains, deleteLast, deleteFirst, addFirst, addLast
