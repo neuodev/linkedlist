@@ -11,6 +11,7 @@ class LinkedList {
     this.tail = null;
     this.length = 0;
   }
+  
   addLast(node) {
     const newNode = new Node(node);
     if (this.head === null || this.tail === null) {
@@ -35,6 +36,7 @@ class LinkedList {
     this.length++;
     return newNode;
   }
+  
   deleteFirst() {
     if (this.head === null || this.tail === null) {
       return -1;
@@ -73,6 +75,7 @@ class LinkedList {
     this.length--;
     return node;
   }
+  
   contains(val) {
     if (this.head === null || this.tail === null) {
       return -1;
@@ -164,7 +167,8 @@ class LinkedList {
     for (let i = 0; i < k - 1; i++) {
       faster = faster.next;
     }
-   // travers to the end of the linked list and when the faster hit the end of the list we return the slower as the kth elment from the last
+    // travers to the end of the linked list and when the faster hit 
+    //the end of the list we return the slower as the kth elment from the last
     while (faster.next) {
       faster = faster.next;
       slower = slower.next;
@@ -180,6 +184,6 @@ LL.addLast(1);
 LL.addLast(2);
 LL.addLast(3);
 LL.addLast(4);
-// LL.reverse();
+LL.reverse();
 console.log(LL.toArray());
 console.log(LL.getKthFromTheEnd(5));
